@@ -4,11 +4,64 @@ package es.travelworld.ejercicio13_retrofit.domain;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User implements Parcelable {
+
+    @SerializedName("nombre")
     private String name;
+
     private String lastname;
+
+
     private String ageGroup;
+
+
     private String password;
+
+    @SerializedName("edad")
+    private int age;
+
+    @SerializedName("genero")
+    private int gender;
+
+    @SerializedName("userToken")
+    private String userToken;
+
+    @SerializedName("idBdReference")
+    private int idBdReference;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public String getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
+    }
+
+    public int getIdBdReference() {
+        return idBdReference;
+    }
+
+    public void setIdBdReference(int idBdReference) {
+        this.idBdReference = idBdReference;
+    }
 
     public String getName() {
         return name;

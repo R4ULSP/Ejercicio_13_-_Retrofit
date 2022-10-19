@@ -3,6 +3,7 @@ package es.travelworld.ejercicio13_retrofit.view.fragments;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -22,11 +24,14 @@ import com.travelworld.ejercicio13_retrofit.R;
 import com.travelworld.ejercicio13_retrofit.databinding.FragmentLoginBinding;
 
 import es.travelworld.ejercicio13_retrofit.domain.User;
+import es.travelworld.ejercicio13_retrofit.repository.LoginRepository;
+import es.travelworld.ejercicio13_retrofit.view.vm.LoginViewModel;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private FragmentLoginBinding binding;
     private User user;
+    private LoginViewModel loginViewModel;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -40,7 +45,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        user = LoginFragmentArgs.fromBundle(getArguments()).getArgUser();
+        //user = LoginFragmentArgs.fromBundle(getArguments()).getArgUser();
+        loginViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new LoginViewModel.Factory(new LoginRepository())).get(LoginViewModel.class);
     }
 
 
@@ -51,7 +57,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        user = new User("1234","5678","18-99","1234");
+        //user = new User("1234","5678","18-99","1234");
 
         if(user != null){
             Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
@@ -130,14 +136,27 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     private void login() {
-        if (user != null && Objects.requireNonNull(binding.loginInputPassword.getText()).toString().equals(user.getPassword()) && Objects.requireNonNull(binding.loginInputUser.getText()).toString().equals(user.getName())) {
+        /*if (user != null && Objects.requireNonNull(binding.loginInputPassword.getText()).toString().equals(user.getPassword()) && Objects.requireNonNull(binding.loginInputUser.getText()).toString().equals(user.getName())) {
             LoginFragmentDirections.ToHomeActivity directions = LoginFragmentDirections.toHomeActivity().setLoginUser(user);
             Navigation.findNavController(requireView()).navigate(directions);
         } else {
             FragmentManager fragmentManager = getParentFragmentManager();
             LoginErrorFragment loginErrorFragment = LoginErrorFragment.newInstance();
             loginErrorFragment.show(fragmentManager, null);
-        }
+        }*/
+        loginViewModel.login(Objects.requireNonNull(binding.loginInputUser.getText()).toString(), Objects.requireNonNull(binding.loginInputPassword.getText()).toString());
+        loginViewModel.getUserLogin().observe(this,user1 -> {
+            Log.w("MainActivity","Hay : " + user1.getName() + " usuarios");
+            LoginFragmentDirections.ToHomeActivity directions = LoginFragmentDirections.toHomeActivity().setLoginUser(user1);
+            Navigation.findNavController(requireView()).navigate(directions);
+        });
+
+        loginViewModel.getThrowable().observe(this,throwable -> {
+            Log.e("MainActivity", "Error en : " + throwable.getMessage() );
+            FragmentManager fragmentManager = getParentFragmentManager();
+            LoginErrorFragment loginErrorFragment = LoginErrorFragment.newInstance();
+            loginErrorFragment.show(fragmentManager, null);
+        });
     }
 
 
