@@ -3,8 +3,6 @@
 ]app/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/DestinationFragment.java,0\1\01b62bb1cc7102e448a9ec76e1281c2be6e3bc51
 ä
 Zapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/RoommateFragment.java,5\2\523d1e9d4d744a37342372a84328249ae046973a
-Ö
-Uapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/CarFragment.java,5\8\58b3bc11d16c611bb8d7c01054062f4e5c13603b
 ä
 Zapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/RegisterFragment.java,f\e\fee0d1cb3aebf15043172152d2ffa768d0e0cf30
 ä
@@ -42,10 +40,6 @@ A
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 7
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
-ì
-capp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/adapter/CarListViewHolder.java,1\0\105909653382d17af32101e2407a3e33b32d9d4a
-ê
-`app/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/adapter/CarListAdapter.java,7\2\725b64fe54ed4ea399829cc5715f08ee81e32593
 Ö
 Uapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/WipFragment.java,6\b\6b56190415630c014c8910e3bcfde0fb96c928a0
 å
@@ -54,3 +48,17 @@ Uapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/WipFragmen
 Mapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/LoginActivity.java,8\1\811c595189b74513e4750d3d86f46f27777519d2
 Ü
 Vapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/MainFragment.java,b\8\b88ae73d298977e0ecbbb76bcafe160c0035f7cf
+á
+Wapp/src/main/java/es/travelworld/ejercicio13_retrofit/repository/api/ApiHotelsList.java,d\c\dc9d2df1f6347fc69411403dbba8409fb3d619c4
+~
+Napp/src/main/java/es/travelworld/ejercicio13_retrofit/domain/HotelAddress.java,3\1\31b38e5f1a1a04a7fd368a7f520973e521ec78a4
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+{
+Kapp/src/main/java/es/travelworld/ejercicio13_retrofit/repository/Utils.java,b\4\b4537e3777322c700b756657cdb4e94ff45b1653
+
+Oapp/src/main/java/es/travelworld/ejercicio13_retrofit/EjercicioRetrofitApp.java,1\8\180f944e061ab6a7b7126076b1e306ba0302b25a
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+v
+Fapp/src/main/java/es/travelworld/ejercicio13_retrofit/domain/User.java,2\2\22e7cca7ac53162df9b6bbf8c72b5f14b4e3ecee

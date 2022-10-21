@@ -7,14 +7,14 @@
     android:isScrollContainer="true"
     tools:context="es.travelworld.ejercicio13_retrofit.view.fragments.HomeFragment">
 
-    <!--<androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hotelList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:listitem="@layout/itemlayout_hotel_list"/>-->
+        tools:listitem="@layout/itemlayout_hotel_list"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -111,5 +111,5 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </FrameLayout>

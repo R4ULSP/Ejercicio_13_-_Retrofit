@@ -12,6 +12,17 @@ public class Hotel {
     private int starRating;
     @SerializedName("address")
     private HotelAddress hotelAddress;
+
+    public RatePlan getRatePlan() {
+        return ratePlan;
+    }
+
+    public void setRatePlan(RatePlan ratePlan) {
+        this.ratePlan = ratePlan;
+    }
+
+    @SerializedName("ratePlan")
+    private RatePlan ratePlan;
     @SerializedName("neighbourhood")
     private String neighbourhood;
 
