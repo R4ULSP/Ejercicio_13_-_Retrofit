@@ -49,22 +49,21 @@ public class HomeFragment extends Fragment {
         FragmentHomeBinding binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         hotelsListViewModel.retrieveHotelsList();
-        hotelsListViewModel.getHotelsList().observe(getViewLifecycleOwner(),hotels -> {
-            Log.w("HomeFragment","Prueba de hotel, cantidad: " + hotels.getHotels().size());
-            Log.w("HomeFragment","Prueba de hotel, cantidad: " + hotels.getHotels().get(0).getName());
+        hotelsListViewModel.getHotelsList().observe(getViewLifecycleOwner(), hotels -> {
             List<Hotel> hotelsList = hotels.getHotels();
-            setUpRecyclerView(binding,hotelsList);
+            setUpRecyclerView(binding, hotelsList);
         });
-        hotelsListViewModel.getThrowable().observe(getViewLifecycleOwner(),throwable -> {
+        hotelsListViewModel.getThrowable().observe(getViewLifecycleOwner(), throwable -> {
+            //TODO: hacer que si falla muestre algo en pantalla, En caso de error de Retrofit mostrar una pantalla conforme no se han encontrado Hoteles.
             Log.e("HomeFragment", "Error en: " + throwable.getMessage());
         });
 
         return binding.getRoot();
     }
 
-    private void setUpRecyclerView(FragmentHomeBinding binding, List<Hotel> hotelsList){
+    private void setUpRecyclerView(FragmentHomeBinding binding, List<Hotel> hotelsList) {
         binding.hotelList.setHasFixedSize(false);
         binding.hotelList.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.hotelList.setAdapter(new HotelListAdapter(hotelsList,hotel -> Toast.makeText(requireActivity(),hotel.getName(),Toast.LENGTH_SHORT).show()));
+        binding.hotelList.setAdapter(new HotelListAdapter(hotelsList, hotel -> Toast.makeText(requireActivity(), hotel.getName(), Toast.LENGTH_SHORT).show()));
     }
 }

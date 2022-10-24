@@ -38,6 +38,7 @@ public class Hotel {
     private ThumbUrl thumbUrl;
 
     public Hotel() {
+        //Empty Constructor
     }
 
     public int getId() {

@@ -17,11 +17,11 @@ public class HotelListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private final List<Hotel> items;
     private final OnItemHotelClick listener;
 
-    public interface OnItemHotelClick{
+    public interface OnItemHotelClick {
         void onItemClick(Hotel hotel);
     }
 
-    public HotelListAdapter(List<Hotel> items, OnItemHotelClick listener){
+    public HotelListAdapter(List<Hotel> items, OnItemHotelClick listener) {
         this.items = items;
         this.listener = listener;
     }
@@ -29,14 +29,14 @@ public class HotelListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemlayoutHotelListBinding binding = ItemlayoutHotelListBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new HotelListViewHolder(binding,listener);
+        ItemlayoutHotelListBinding binding = ItemlayoutHotelListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new HotelListViewHolder(binding, listener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof HotelListViewHolder){
-            ((HotelListViewHolder)holder).bind(items.get(position));
+        if (holder instanceof HotelListViewHolder) {
+            ((HotelListViewHolder) holder).bind(items.get(position));
         }
     }
 

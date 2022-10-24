@@ -116,6 +116,7 @@ public class User implements Parcelable {
     }
 
     public User() {
+        //Empty Constructor
     }
 
     public User(String name, String lastname, String ageGroup, String password) {

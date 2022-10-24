@@ -27,6 +27,8 @@ import es.travelworld.ejercicio13_retrofit.domain.User;
 import es.travelworld.ejercicio13_retrofit.repository.LoginRepository;
 import es.travelworld.ejercicio13_retrofit.view.vm.LoginViewModel;
 
+
+//TODO: Login mediante Retrofit => Si devuelve un error deberemos indicar al usuario mediante un SnackBar que no hemos podido acceder
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private FragmentLoginBinding binding;
@@ -45,7 +47,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //user = LoginFragmentArgs.fromBundle(getArguments()).getArgUser();
         loginViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new LoginViewModel.Factory(new LoginRepository())).get(LoginViewModel.class);
     }
 
@@ -59,7 +60,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         //user = new User("1234","5678","18-99","1234");
 
-        if(user != null){
+        if (user != null) {
             Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
         }
 
@@ -145,14 +146,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             loginErrorFragment.show(fragmentManager, null);
         }*/
         loginViewModel.login(Objects.requireNonNull(binding.loginInputUser.getText()).toString(), Objects.requireNonNull(binding.loginInputPassword.getText()).toString());
-        loginViewModel.getUserLogin().observe(this,user1 -> {
-            Log.w("MainActivity","Hay : " + user1.getName() + " usuarios");
+        loginViewModel.getUserLogin().observe(this, user1 -> {
+            Log.w("MainActivity", "Hay : " + user1.getName() + " usuarios");
             LoginFragmentDirections.ToHomeActivity directions = LoginFragmentDirections.toHomeActivity().setLoginUser(user1);
             Navigation.findNavController(requireView()).navigate(directions);
         });
 
-        loginViewModel.getThrowable().observe(this,throwable -> {
-            Log.e("MainActivity", "Error en : " + throwable.getMessage() );
+        loginViewModel.getThrowable().observe(this, throwable -> {
+            Log.e("MainActivity", "Error en : " + throwable.getMessage());
             FragmentManager fragmentManager = getParentFragmentManager();
             LoginErrorFragment loginErrorFragment = LoginErrorFragment.newInstance();
             loginErrorFragment.show(fragmentManager, null);

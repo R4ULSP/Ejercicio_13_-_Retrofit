@@ -9,6 +9,7 @@ public class Price {
     private double exactCurrent;
 
     public Price() {
+        //Empty Constructor
     }
 
     public String getCurrent() {

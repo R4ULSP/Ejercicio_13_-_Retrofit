@@ -13,6 +13,7 @@ public class HotelAddress {
     private String country;
 
     public HotelAddress() {
+        //Empty Constructor
     }
 
     public String getStreetAddess() {

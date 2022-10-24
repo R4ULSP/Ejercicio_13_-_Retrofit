@@ -11,6 +11,7 @@ public class HotelsList {
     private List<Hotel> hotels;
 
     public HotelsList() {
+        //Empty Constructor
     }
 
     public int getTotalCount() {

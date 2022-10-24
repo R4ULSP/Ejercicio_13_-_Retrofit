@@ -38,11 +38,11 @@ public class HotelListViewHolder extends RecyclerView.ViewHolder {
         initHotelThumb(hotel);
     }
 
-    private void initHotelThumb(Hotel hotel){
-        Handler handler = new Handler();
+    private void initHotelThumb(Hotel hotel) {
         Runnable runnable = () -> {
             Bitmap bitmap = getHotelThumb(hotel.getThumbUrl().getSrpDesktop());
-            handler.post(() -> {
+            //TODO buscar solucion a Deprecated
+            new Handler().post(() -> {
                 if (bitmap != null) {
                     binding.hotelPhoto.setImageBitmap(bitmap);
 

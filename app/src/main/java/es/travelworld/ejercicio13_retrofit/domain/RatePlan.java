@@ -7,6 +7,7 @@ public class RatePlan {
     private Price price;
 
     public RatePlan() {
+        //Empty Constructor
     }
 
     public Price getPrice() {

@@ -14,19 +14,19 @@ public class LoginViewModel extends ViewModel {
     private final MutableLiveData<Throwable> throwableError = new MutableLiveData<>();
     private final MutableLiveData<User> userLogin = new MutableLiveData<>();
 
-    public LoginViewModel(LoginRepository loginRepository){
+    public LoginViewModel(LoginRepository loginRepository) {
         this.repository = loginRepository;
     }
 
-    public LiveData<Throwable> getThrowable(){
+    public LiveData<Throwable> getThrowable() {
         return throwableError;
     }
 
-    public LiveData<User> getUserLogin(){
+    public LiveData<User> getUserLogin() {
         return userLogin;
     }
 
-    public void login(String username, String password){
+    public void login(String username, String password) {
         repository.getUserFromServer(username, password, new LoginRepository.Login() {
             @Override
             public void onSuccess(User user) {
@@ -43,7 +43,7 @@ public class LoginViewModel extends ViewModel {
     public static class Factory extends ViewModelProvider.NewInstanceFactory {
         private final LoginRepository loginRepository;
 
-        public Factory(LoginRepository loginRepository){
+        public Factory(LoginRepository loginRepository) {
             this.loginRepository = loginRepository;
         }
 

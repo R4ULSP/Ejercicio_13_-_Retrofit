@@ -7,6 +7,7 @@ public class ThumbUrl {
     private String srpDesktop;
 
     public ThumbUrl() {
+        //Empty Constructor
     }
 
     public String getSrpDesktop() {

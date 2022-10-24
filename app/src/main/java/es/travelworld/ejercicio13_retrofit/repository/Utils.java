@@ -8,6 +8,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Utils {
     private static final String HOST = "https://01394d44-8918-4a1d-8059-629c50c25e87.mock.pstmn.io/";
 
+    private Utils(){
+        //Private Constructor
+    }
+
     public static ApiLogin getApiLogin() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST)
@@ -17,19 +21,11 @@ public class Utils {
         return retrofit.create(ApiLogin.class);
     }
 
-    public static ApiHotelsList getApiHotelsList(){
+    public static ApiHotelsList getApiHotelsList() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit.create(ApiHotelsList.class);
     }
-
-    /*public static ApiHotelsList getApiHotelThumb(String thumbUrl){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(thumbUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        return retrofit.create(ApiHotelsList.class);
-    }*/
 }
