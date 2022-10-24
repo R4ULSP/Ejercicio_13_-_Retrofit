@@ -13,6 +13,11 @@ public class HotelsListRepository {
         void onError(Throwable throwable);
     }
 
+    /*public interface HotelThumbInterface{
+        void onSuccess(HotelsList hotelsList);
+        void onError(Throwable throwable);
+    }*/
+
 
 
     public void getHotelsListFromServer(HotelsListInterface callback){
@@ -35,4 +40,20 @@ public class HotelsListRepository {
             }
         });
     }
+
+    /*public void getHotelThumbFromServer(HotelsListInterface callback, String thumbUrl){
+        Utils.getApiHotelThumb(thumbUrl).listRepos().enqueue(new Callback<HotelsList>() {
+            @Override
+            public void onResponse(Call<HotelsList> call, Response<HotelsList> response) {
+                callback.onSuccess(response.body());
+                Log.i("HotelsListRepository","Ha entrado en success imagen");
+            }
+
+            @Override
+            public void onFailure(Call<HotelsList> call, Throwable t) {
+                callback.onError(new Throwable("Ha habido respuesta pero no ha sido 200 o no fue exitosa"));
+                Log.e("HotelsListRepository","Ha entrado en error");
+            }
+        });
+    }*/
 }

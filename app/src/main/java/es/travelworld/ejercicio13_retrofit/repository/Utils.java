@@ -24,4 +24,12 @@ public class Utils {
                 .build();
         return retrofit.create(ApiHotelsList.class);
     }
+
+    /*public static ApiHotelsList getApiHotelThumb(String thumbUrl){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(thumbUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        return retrofit.create(ApiHotelsList.class);
+    }*/
 }
