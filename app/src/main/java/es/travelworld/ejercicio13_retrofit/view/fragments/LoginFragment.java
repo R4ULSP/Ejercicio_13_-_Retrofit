@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -29,7 +28,6 @@ import es.travelworld.ejercicio13_retrofit.repository.LoginRepository;
 import es.travelworld.ejercicio13_retrofit.view.vm.LoginViewModel;
 
 
-//TODO: Login mediante Retrofit => Si devuelve un error deberemos indicar al usuario mediante un SnackBar que no hemos podido acceder
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private FragmentLoginBinding binding;
