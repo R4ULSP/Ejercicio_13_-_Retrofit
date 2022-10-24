@@ -9,13 +9,16 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.travelworld.ejercicio13_retrofit.R;
 import com.travelworld.ejercicio13_retrofit.databinding.FragmentHomeBinding;
 
 import java.util.List;
+import java.util.Objects;
 
 import es.travelworld.ejercicio13_retrofit.domain.Hotel;
 import es.travelworld.ejercicio13_retrofit.repository.HotelsListRepository;
@@ -54,11 +57,24 @@ public class HomeFragment extends Fragment {
             setUpRecyclerView(binding, hotelsList);
         });
         hotelsListViewModel.getThrowable().observe(getViewLifecycleOwner(), throwable -> {
-            //TODO: hacer que si falla muestre algo en pantalla, En caso de error de Retrofit mostrar una pantalla conforme no se han encontrado Hoteles.
+            showHotelLoadErrorDialog();
             Log.e("HomeFragment", "Error en: " + throwable.getMessage());
         });
 
         return binding.getRoot();
+    }
+
+    private void showHotelLoadErrorDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(R.string.hotels_error)
+                .setMessage(R.string.hotels_load_error_message)
+                .setPositiveButton(R.string.ok, (dialogInterface, i) ->
+                        dialogInterface.dismiss()
+                        //Click salir
+                );
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void setUpRecyclerView(FragmentHomeBinding binding, List<Hotel> hotelsList) {

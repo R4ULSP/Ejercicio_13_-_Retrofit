@@ -4,6 +4,7 @@ package es.travelworld.ejercicio13_retrofit.view.fragments.adapter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.os.Looper;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,13 +37,14 @@ public class HotelListViewHolder extends RecyclerView.ViewHolder {
         binding.hotelPrice.setText(hotel.getRatePlan().getPrice().getCurrent());
         binding.hotelRatingText.setText(String.valueOf(hotel.getStarRating()));
         initHotelThumb(hotel);
+
+        itemView.setOnClickListener(view -> listener.onItemClick(hotel));
     }
 
     private void initHotelThumb(Hotel hotel) {
         Runnable runnable = () -> {
             Bitmap bitmap = getHotelThumb(hotel.getThumbUrl().getSrpDesktop());
-            //TODO buscar solucion a Deprecated
-            new Handler().post(() -> {
+            new Handler(Looper.getMainLooper()).post(() -> {
                 if (bitmap != null) {
                     binding.hotelPhoto.setImageBitmap(bitmap);
 

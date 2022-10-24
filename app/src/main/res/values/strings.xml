@@ -25,7 +25,7 @@
     <string name="card_calendar_title">City of Los Angeles</string>
     <string name="card_camping_text">Madives - 3 weeks</string>
     <string name="card_camping_title">Beach vacation</string>
-    <string name="login_error">Error de usuario o contraseña</string>
+    <string name="login_error">Error al iniciar sesión</string>
     <string name="register_title">Registro</string>
     <string name="upcoming_meetups">Upcoming Meetups</string>
     <string name="eurodisney">EuroDisney Website</string>
@@ -52,4 +52,7 @@
     <string name="channel_description">Se muestra una notificación al iniciar sesión.</string>
     <string name="welcome">Bienvenido</string>
     <string name="glad_to_see_you">Nos alegra verte en este paraíso.</string>
+    <string name="hotels_error">Error al cargar los hoteles</string>
+    <string name="hotels_load_error_message">Ha ocurrido un error al cargar la lista de hoteles.</string>
+    <string name="login_error_message">Asegúrate de que los datos son correctos y que tienes conexión a internet.</string>
 </resources>

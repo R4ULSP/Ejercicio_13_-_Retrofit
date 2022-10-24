@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
@@ -137,27 +138,29 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     private void login() {
-        /*if (user != null && Objects.requireNonNull(binding.loginInputPassword.getText()).toString().equals(user.getPassword()) && Objects.requireNonNull(binding.loginInputUser.getText()).toString().equals(user.getName())) {
-            LoginFragmentDirections.ToHomeActivity directions = LoginFragmentDirections.toHomeActivity().setLoginUser(user);
-            Navigation.findNavController(requireView()).navigate(directions);
-        } else {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            LoginErrorFragment loginErrorFragment = LoginErrorFragment.newInstance();
-            loginErrorFragment.show(fragmentManager, null);
-        }*/
         loginViewModel.login(Objects.requireNonNull(binding.loginInputUser.getText()).toString(), Objects.requireNonNull(binding.loginInputPassword.getText()).toString());
         loginViewModel.getUserLogin().observe(this, user1 -> {
-            Log.w("MainActivity", "Hay : " + user1.getName() + " usuarios");
             LoginFragmentDirections.ToHomeActivity directions = LoginFragmentDirections.toHomeActivity().setLoginUser(user1);
             Navigation.findNavController(requireView()).navigate(directions);
         });
 
         loginViewModel.getThrowable().observe(this, throwable -> {
             Log.e("MainActivity", "Error en : " + throwable.getMessage());
-            FragmentManager fragmentManager = getParentFragmentManager();
-            LoginErrorFragment loginErrorFragment = LoginErrorFragment.newInstance();
-            loginErrorFragment.show(fragmentManager, null);
+            showLoginErrorDialog();
         });
+    }
+
+    private void showLoginErrorDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(R.string.login_error)
+                .setMessage(R.string.login_error_message)
+                .setPositiveButton(R.string.ok, (dialogInterface, i) ->
+                                dialogInterface.dismiss()
+                        //Click salir
+                );
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 

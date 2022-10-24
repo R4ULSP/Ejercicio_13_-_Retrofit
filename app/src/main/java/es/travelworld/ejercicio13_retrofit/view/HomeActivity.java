@@ -2,7 +2,6 @@ package es.travelworld.ejercicio13_retrofit.view;
 
 
 import static es.travelworld.ejercicio13_retrofit.domain.References.KEY_GEO_PERMISSION;
-import static es.travelworld.ejercicio13_retrofit.domain.References.PRUEBAS;
 
 import android.Manifest;
 import android.content.Context;
@@ -11,7 +10,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -60,8 +58,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void checkPermissions() {
-        Log.d(PRUEBAS, "granted: " + permissionGranted + " rationale: " + showRationale());
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //Permisos no concedidos
             askForPermission();

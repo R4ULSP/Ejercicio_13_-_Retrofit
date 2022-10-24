@@ -21,8 +21,6 @@ Wapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/MatchFragm
 Lapp/src/test/java/es/travelworld/ejercicio10_navigation/ExampleUnitTest.java,4\c\4c24f2650ca7dfb6b77f55e5f267ca2a74678724
 ‹
 [app/src/androidTest/java/es/travelworld/ejercicio10_navigation/ExampleInstrumentedTest.java,e\f\efc0d4a1f9f3e747098d23c2000f105b85de2ce2
-|
-Lapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/HomeActivity.java,7\4\74e0449594a9029bed98f00cf4c4322280bfc563
 >
 app/.gitignore,5\1\51e1c5d383dfaa35e0e7e5873a0a99355a86880f
 F
@@ -38,12 +36,8 @@ A
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
 …
 Uapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/WipFragment.java,6\b\6b56190415630c014c8910e3bcfde0fb96c928a0
-Œ
-\app/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/LoginErrorFragment.java,3\d\3d892a4c9588f3d3b56370dbfa161b8ac58066b9
 }
 Mapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/LoginActivity.java,8\1\811c595189b74513e4750d3d86f46f27777519d2
-†
-Vapp/src/main/java/es/travelworld/ejercicio13_retrofit/view/fragments/MainFragment.java,b\8\b88ae73d298977e0ecbbb76bcafe160c0035f7cf
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 
